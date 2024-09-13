@@ -6,15 +6,15 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 const router = createBrowserRouter([
   {
     path: "/",
-    //element: <Root/>,
+    element: <Root/>,
     children: [
       {
         index: true, // tells route to be same as parent
-        //element: <Home/>,
+        element: <Home/>,
       },
       {
-        path: "/word-list",
-        //element: <WordList/>,
+        path: "/saved-profiles",
+        element: <SavedProfiles />,
       },
     ],
   },
