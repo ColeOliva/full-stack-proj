@@ -1,16 +1,20 @@
-import { Suspense } from "react";
+import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./Layout/Root";
+import Loading from "./Pages/Loading";
 
 // import using lazy
+const Home = lazy(() => import("./Pages/Home"));
+const SavedProfiles = lazy(() => import("./Pages/SavedProfiles"));
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root/>,
+    element: <Root />,
     children: [
       {
         index: true, // tells route to be same as parent
-        element: <Home/>,
+        element: <Home />,
       },
       {
         path: "/saved-profiles",
