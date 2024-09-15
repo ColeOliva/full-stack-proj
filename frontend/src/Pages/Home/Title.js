@@ -1,7 +1,29 @@
-const Title = () => {
+import Color from "../../constant/Color";
+
+const Title = ({ information }) => {
   return (
-    <div>
-      <h1>Username</h1>
+    <div
+      style={{
+        marginLeft: "1rem",
+      }}
+    >
+      <div
+        style={{
+          fontSize: Color.headerFontSize,
+          fontWeight: Color.fontWeight,
+        }}
+      >
+        {information.name}
+      </div>
+      <div>
+        <a
+          href={`https://github.com/${information.login}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @{information.login}
+        </a>
+      </div>
     </div>
   );
 };
