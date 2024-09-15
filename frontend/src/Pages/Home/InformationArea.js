@@ -28,6 +28,7 @@ const InformationArea = ({ information }) => {
             flexDirection: "column",
             justifyContent: "space-between",
             padding: "1rem",
+            width: '75vw',
       }}>
         <Title information={information}/>
         <Bio information={information}/>
