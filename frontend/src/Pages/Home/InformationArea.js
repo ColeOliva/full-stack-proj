@@ -21,7 +21,7 @@ const InformationArea = ({ information }) => {
       }}
     >
       <div>
-        <Avatar />
+        <Avatar information={information} />
       </div>
       <div style={{
             display: "flex",
@@ -29,10 +29,10 @@ const InformationArea = ({ information }) => {
             justifyContent: "space-between",
             padding: "1rem",
       }}>
-        <Title />
-        <Bio />
-        <Stats />
-        <Links />
+        <Title information={information}/>
+        <Bio information={information}/>
+        <Stats information={information}/>
+        <Links information={information}/>
       </div>
     </div>
   );

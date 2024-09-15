@@ -7,7 +7,7 @@ const Home = () => {
   const [information, setInformation] = useState({});
   const user = "Octocat";
 
-  const searchUser = async (word) => {
+  const searchUser = async (user) => {
     try {
       const response = await axios.get(`https://api.github.com/users/${user}`);
       const data = response.data;
