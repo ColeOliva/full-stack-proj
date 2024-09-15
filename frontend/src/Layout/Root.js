@@ -27,22 +27,17 @@ const SidebarWrapper = styled.div`
   height: 10rem; // 1rem = 16px
   background-color: ${Color.backgroundGray};
   border-right: 1px solid ${Color.backgroundGray};
-  width: 100vh; // full height of viewport
-
-  // common breakpoints: 320, 768, 1024, 1440
-  @media (max-width: 992px) {
-    display: none;
-  }
+  width: 100vw; // full width of viewport
 `;
 
 const PageWrapper = styled.div`
   height: calc(100% - 10rem); // space not taken by sidebar
-  width: 100vh; // full height of viewport
+  width: 100vw; // full width of viewport
   overflow-y: auto; // allow scrolling
   padding: 4rem;
 
   @media (max-width: 992px) {
-    width: calc(100% - 2rem);
+    height: calc(100% - 2rem);
     padding: 2rem;
   }
 `;

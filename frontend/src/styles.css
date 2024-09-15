@@ -1,0 +1,35 @@
+/* styles for global */
+
+body {
+  font-family: "Space Mono", monospace; /* Using the font family from the style guide */
+  font-size: 16px; /* Base font size */
+  font-weight: 700; /* Font weight from style guide */
+  color: #2b3442; /* Primary text color */
+  background-color: #f6f8ff; /* Background color from style guide */
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Space Mono", monospace;
+  font-weight: 700; /* Same as body */
+  color: #2b3442; /* Primary text color */
+}
+
+h1 {
+  font-size: 1.625rem; /* From style guide */
+}
+
+h2 {
+  font-size: 1.375rem; /* Example for another header size */
+}
+
+p {
+  font-size: 0.9375rem; /* Misc text size from style guide */
+  color: #4b6a9b; /* Secondary text color from style guide */
+}
