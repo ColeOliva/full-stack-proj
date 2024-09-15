@@ -25,7 +25,7 @@ const SearchBar = ({
   };
 
   return (
-    <InputForm onSubmit={handleSubmit} info={information}>
+    <InputForm onSubmit={handleSubmit}>
       <div className="leftSideSearch">
         <Button type="submit">
           <IoSearchOutline size={20} color={"blue"} />
