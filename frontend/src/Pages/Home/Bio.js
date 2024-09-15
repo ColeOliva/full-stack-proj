@@ -20,7 +20,7 @@ const Bio = ({ information }) => {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
-          marginTop: "3rem",
+          marginTop: "2rem",
         }}
       >
         <div>this user has no bio</div>
