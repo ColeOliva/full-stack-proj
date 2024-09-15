@@ -2,8 +2,9 @@ const Avatar = ({ information }) => {
   return (
     <div
       style={{
-        width: 100,
-        height: 100,
+        margin: "2rem",
+        width: "6rem",
+        height: "6rem",
         borderRadius: "50%",
         backgroundColor: "gray",
         overflow: "hidden", // Ensures the image doesn't overflow the circular container
