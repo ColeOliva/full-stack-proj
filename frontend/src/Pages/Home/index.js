@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import InformationArea from "./InformationArea";
 import SearchBar from "./SearchBar";
 
 const Home = () => {
@@ -33,6 +34,7 @@ const Home = () => {
         information={information}
         setInformation={setInformation}
       />
+      <InformationArea information={information} />
     </div>
   );
 };
