@@ -73,6 +73,10 @@ const InputForm = styled.form`
     border: none;
     cursor: pointer;
   }
+
+  .searchButton:hover {
+    background-color: ${Color.hoverButtonm};
+  }
 `;
 
 const Input = styled.input`
