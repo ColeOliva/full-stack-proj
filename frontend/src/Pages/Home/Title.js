@@ -1,3 +1,4 @@
+import { CiCirclePlus } from "react-icons/ci";
 import Color from "../../constant/Color";
 
 const Title = ({ information }) => {
@@ -9,9 +10,7 @@ const Title = ({ information }) => {
         justifyContent: "space-between",
       }}
     >
-      <div style={{
-        marginLeft: "1rem",
-      }}>
+      <div>
         <div
           style={{
             fontSize: Color.headerFontSize,
@@ -20,7 +19,7 @@ const Title = ({ information }) => {
         >
           {information.name}
         </div>
-        <div>
+        <div style={{ marginTop: "0.75rem" }}>
           <a
             href={`https://github.com/${information.login}`}
             target="_blank"
@@ -30,7 +29,13 @@ const Title = ({ information }) => {
           </a>
         </div>
       </div>
-      <div>save button goes here</div>
+      <div
+        style={{
+          padding: "1rem",
+        }}
+      >
+        <CiCirclePlus size={40} />
+      </div>
     </div>
   );
 };

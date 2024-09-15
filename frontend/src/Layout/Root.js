@@ -23,7 +23,7 @@ const Root = () => {
 
 // Adjust the width and background color
 const SidebarWrapper = styled.div`
-  height: 6rem; // 1rem = 16px
+  height: 4rem; // 1rem = 16px
   background-color: ${Color.backgroundGray};
   border-right: 1px solid ${Color.backgroundGray};
   width: 100%-2rem; // use percentage instead of viewport width

@@ -51,7 +51,7 @@ const InputForm = styled.form`
   justify-content: space-between;
   align-items: center;
   background-color: ${Color.backgroundWhite};
-  padding: 1rem;
+  padding: 0.75rem;
   border-radius: 12px;
   box-shadow: 20px 10px 10px rgba(0, 0, 0, 0.1);
   font-family: "Space Mono", monospace;

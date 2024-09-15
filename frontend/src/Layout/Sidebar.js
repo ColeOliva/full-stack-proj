@@ -27,9 +27,7 @@ const Sidebar = () => {
 };
 
 const Header = styled.header`
-  padding: 1rem 2rem;
-  border-bottom: 1px solid ${Color.backgroundGray};
-
+  padding: 0rem 2rem 1rem 2rem;
   .header-content {
     display: flex;
     justify-content: space-between;

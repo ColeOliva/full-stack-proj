@@ -29,6 +29,7 @@ const InformationArea = ({ information }) => {
             justifyContent: "space-between",
             padding: "1rem",
             width: '75vw',
+            marginLeft: '1rem',
       }}>
         <Title information={information}/>
         <Bio information={information}/>
