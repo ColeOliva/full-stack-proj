@@ -41,14 +41,14 @@ const SearchBar = ({ searchUser, information }) => {
 };
 
 const InputForm = styled.form`
-  height: 50px;
+  height: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: ${Color.backgroundWhite};
   padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 20px 10px 10px rgba(0, 0, 0, 0.1);
   font-family: "Space Mono", monospace;
   font-weight: ${Color.fontWeight};
 
