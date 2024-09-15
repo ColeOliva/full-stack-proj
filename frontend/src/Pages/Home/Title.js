@@ -21,6 +21,10 @@ const Title = ({ information }) => {
         </div>
         <div style={{ marginTop: "0.75rem" }}>
           <a
+            style={{
+              textDecoration: "none",
+              color: Color.tertiaryText,
+            }}
             href={`https://github.com/${information.login}`}
             target="_blank"
             rel="noopener noreferrer"

@@ -15,9 +15,7 @@ const SearchBar = ({
   };
 
   const handleSubmit = async (e) => {
-    // prevent default form submission, which refreshes page
     e.preventDefault();
-    // call function to search user
     const word = text;
     if (word === "") return;
     const data = await searchUser(word);
@@ -46,7 +44,7 @@ const SearchBar = ({
 };
 
 const InputForm = styled.form`
-  height: 40px;
+  height: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,9 +54,12 @@ const InputForm = styled.form`
   box-shadow: 20px 10px 10px rgba(0, 0, 0, 0.1);
   font-family: "Space Mono", monospace;
   font-weight: ${Color.fontWeight};
+  font-size: '2rem';
+  line-height: '2rem';
 
   .searchInput {
     width: 75vw;
+    height: 30px;
   }
 
   .leftSideSearch {
@@ -71,16 +72,19 @@ const InputForm = styled.form`
     font-family: "Space Mono", monospace;
     color: ${Color.backgroundWhite};
     border-radius: 8px;
-    padding: 16px;
+    padding: 0.75rem;
     font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100px;
-    height: 50px;
+    height: 45px;
     border: none;
     cursor: pointer;
   }
 
   .searchButton:hover {
-    background-color: ${Color.hoverButtonm};
+    background-color: ${Color.hoverButton};
   }
 `;
 

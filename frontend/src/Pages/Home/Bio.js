@@ -23,27 +23,11 @@ const Bio = ({ information }) => {
           marginTop: "2rem",
         }}
       >
-        <div>this user has no bio</div>
+        <div>{information.bio ? information.bio : ("this user has no bio")}</div>
         <div>Joined {joinDate}</div>
       </div>
     );
   }
-
-  // Render bio and join date if the bio exists
-  return (
-    <div
-      style={{
-        color: Color.secondaryText,
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        marginTop: "2rem",
-      }}
-    >
-      <div>{information.bio}</div>
-      <div>Joined {joinDate}</div>
-    </div>
-  );
 };
 
 export default Bio;
