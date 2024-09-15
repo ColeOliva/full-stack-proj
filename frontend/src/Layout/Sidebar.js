@@ -44,7 +44,6 @@ const Header = styled.header`
   }
 
   h1::before {
-    content: url('/logo.svg');
     margin-right: 0.5rem;
   }
 `;
@@ -69,6 +68,7 @@ const Navigation = styled.nav`
     border-radius: 8px;
     color: inherit;
     transition: background-color 0.3s;
+    color: ${Color.secondaryText};
   }
 
   a.active {
