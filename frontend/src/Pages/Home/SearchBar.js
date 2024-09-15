@@ -3,7 +3,11 @@ import { IoSearchOutline } from "react-icons/io5";
 import styled from "styled-components";
 import Color from "../../constant/Color";
 
-const SearchBar = ({ searchUser, information }) => {
+const SearchBar = ({
+  searchUser,
+  information,
+  setInformation,
+}) => {
   const [text, setText] = useState("");
 
   const handleChange = (e) => {
@@ -14,9 +18,10 @@ const SearchBar = ({ searchUser, information }) => {
     // prevent default form submission, which refreshes page
     e.preventDefault();
     // call function to search user
-    const word = text.trim();
+    const word = text;
     if (word === "") return;
     const data = await searchUser(word);
+    setInformation(data);
   };
 
   return (
