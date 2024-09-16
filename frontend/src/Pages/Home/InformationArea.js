@@ -5,6 +5,7 @@ import Bio from "./Bio";
 import Links from "./Links";
 import Stats from "./Stats";
 import Title from "./Title";
+import { HiOutlineEmojiSad } from "react-icons/hi";
 
 const Container = styled.div`
   display: flex;
@@ -37,7 +38,28 @@ const Info = styled.div`
 
 const InformationArea = ({ information }) => {
   if (!information) {
-    return <div style={{ marginTop: "2rem" }}>No information to display</div>; // need to do no profile found
+    return (
+    <div style={{
+        backgroundColor: Color.backgroundWhite,
+        borderRadius: "12px",
+        marginTop: "1.5rem",
+    }}>
+        <div style={{
+            padding: "1rem",
+            color: Color.primaryText,
+            textAlign: "center",
+        }}>
+            <HiOutlineEmojiSad size={150} />
+        </div>
+        <div style={{
+            fontSize: "1.5rem",
+            color: Color.secondaryText,
+            textAlign: "center",
+            padding: "1rem",
+        }}>
+            No profile found
+        </div>
+    </div>)
   }
 
   return (
