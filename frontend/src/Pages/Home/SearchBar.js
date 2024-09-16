@@ -44,7 +44,7 @@ const SearchBar = ({
 };
 
 const InputForm = styled.form`
-  height: 30px;
+  height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,15 +54,17 @@ const InputForm = styled.form`
   box-shadow: 20px 10px 10px rgba(0, 0, 0, 0.1);
   font-family: "Space Mono", monospace;
   font-weight: ${Color.fontWeight};
-  font-size: '2rem';
-  line-height: '2rem';
+  font-size: 1rem; /* Updated font size */
+  line-height: 1.5rem; /* Updated line height */
 
   .searchInput {
-    width: 75vw;
-    height: 30px;
+    width: 100%;
+    height: auto;
+    flex: 1;
   }
 
   .leftSideSearch {
+    flex: 1;
     display: flex;
     align-items: center;
   }
@@ -78,13 +80,28 @@ const InputForm = styled.form`
     justify-content: center;
     align-items: center;
     width: 100px;
-    height: 45px;
+    height: auto;
     border: none;
     cursor: pointer;
   }
 
   .searchButton:hover {
     background-color: ${Color.hoverButton};
+  }
+
+  @media (max-width: 992px) {
+    height: auto;
+    padding: 1rem;
+
+    .searchInput {
+      width: 75%;
+      margin-bottom: 0.5rem;
+    }
+
+    .searchButton {
+      width: 25%;
+      height: auto;
+    }
   }
 `;
 
