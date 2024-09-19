@@ -21,7 +21,7 @@ const ErrorDisplay = ({ pageKey }) => {
 
   return (
     <div
-      style={{ color: "red", paddingTop: 20, paddingBottom: 20, fontSize: 20 }}
+      style={{ color: "red", fontSize: 12 }}
     >
       {errors[pageKey]}
     </div>

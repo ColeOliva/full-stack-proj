@@ -25,22 +25,22 @@ const List = () => {
   return (
     <div
       style={{
-        marginLeft: "5rem",
         display: "flex",
         flexWrap: "wrap",
-        justifyContent: "flex-start",
+        justifyContent: "center",
+        alignItems: "flex-start",
       }}
     >
       {profiles.map((profile, index) => (
         <div
           key={index}
           style={{
-            width: "175px",
+            width: "200px",
             padding: "1rem",
             backgroundColor: "#fff",
             borderRadius: "10px",
             boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
-            margin: "1rem",
+            margin: "0.5rem 1rem",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -76,7 +76,9 @@ const List = () => {
           </a>
 
           {/* Action icons (view and delete) */}
-          <div style={{ display: "flex", justifyContent: "center", gap: "2rem" }}>
+          <div
+            style={{ display: "flex", justifyContent: "center", gap: "2rem" }}
+          >
             {/* View icon */}
             <a
               href={profile.profileData.html_url}
