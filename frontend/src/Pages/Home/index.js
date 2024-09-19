@@ -1,11 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import ErrorDisplay from "../../component/ErrorDisplay";
+import useErrorContext from "../../hook/useErrorContext";
 import InformationArea from "./InformationArea";
 import SearchBar from "./SearchBar";
 
 const Home = () => {
   const [information, setInformation] = useState({});
-  const user = "Octocat";
+  const [searchParams] = useSearchParams();
+  const { reportErrors } = useErrorContext();
+  const user = searchParams.get("user") || "Octocat";
 
   const searchUser = async (user) => {
     try {
@@ -13,7 +18,7 @@ const Home = () => {
       const data = response.data;
       return data;
     } catch (error) {
-      console.log(error);
+      reportErrors("home", error.message);
     }
   };
 
@@ -29,6 +34,7 @@ const Home = () => {
 
   return (
     <div>
+      <ErrorDisplay pageKey="home" />
       <SearchBar
         searchUser={searchUser}
         information={information}

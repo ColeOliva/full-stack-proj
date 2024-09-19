@@ -1,13 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
-const router = require('./routes/wordRoutes');
+const router = require('./routes/profileRoutes');
 const cors = require('cors');
 
 // Create Express server
 const app = express();
 // set the port
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 3001;
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -23,7 +23,7 @@ connection.once('open', () => {
 });
 
 // Routes
-app.use('/words', router);
+app.use('/saved-profiles', router);
 
 // start the server
 app.listen(port, () => {

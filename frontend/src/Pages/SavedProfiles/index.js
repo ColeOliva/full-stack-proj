@@ -1,7 +1,9 @@
+import List from "./List";
+
 const SavedProfiles = () => {
   return (
     <div>
-      <h1>Saved Profiles</h1>
+      <List />
     </div>
   );
 };

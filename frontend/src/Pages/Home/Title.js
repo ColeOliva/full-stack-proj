@@ -1,14 +1,45 @@
-import { CiCirclePlus } from 'react-icons/ci';
-import styled from 'styled-components';
+import { useState } from "react";
+import { CiCircleCheck, CiCirclePlus } from "react-icons/ci";
+import styled from "styled-components";
 import Color from "../../constant/Color";
+import useErrorContext from "../../hook/useErrorContext";
+import useProfileContext from "../../hook/useProfileContext";
 
 const Title = ({ information }) => {
+  const [loading, setLoading] = useState(false);
+  const { profiles, addProfile, deleteProfile } = useProfileContext();
+  const { reportErrors } = useErrorContext();
+
+  const isProfileSaved = profiles.some(
+    (element) => element._id === information.login
+  );
+
+  const handleAddProfile = async () => {
+    try {
+      setLoading(true);
+      await addProfile(information);
+    } catch (error) {
+      reportErrors("home", error.message);
+    } finally {
+      setLoading(false); // Ensure loading is stopped after adding
+    }
+  };
+
+  const handleDeleteProfile = async () => {
+    try {
+      setLoading(true);
+      await deleteProfile(information.login); // Pass the correct ID for deletion
+    } catch (error) {
+      reportErrors("home", error.message);
+    } finally {
+      setLoading(false); // Ensure loading is stopped after deleting
+    }
+  };
+
   return (
     <TitleContainer>
       <TextContent>
-        <Name>
-          {information.name ? information.name : information.login}
-        </Name>
+        <Name>{information.name ? information.name : information.login}</Name>
         <Username>
           <a
             href={`https://github.com/${information.login}`}
@@ -20,7 +51,23 @@ const Title = ({ information }) => {
         </Username>
       </TextContent>
       <IconContainer>
-        <CiCirclePlus size={40} cursor={"pointer"} />
+        {isProfileSaved ? (
+          <button
+            style={{ background: "none", border: "none", cursor: "pointer" }}
+            onClick={handleDeleteProfile}
+            disabled={loading}
+          >
+            <CiCircleCheck size={30} color={Color.primaryButton} />
+          </button>
+        ) : (
+          <button
+            style={{ background: "none", border: "none", cursor: "pointer" }}
+            onClick={handleAddProfile}
+            disabled={loading}
+          >
+            <CiCirclePlus size={30} color={"black"} />
+          </button>
+        )}
       </IconContainer>
     </TitleContainer>
   );

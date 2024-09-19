@@ -1,11 +1,14 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ErrorProvider } from "./context/ErrorContext";
+import { ProfileProvider } from "./context/ProfileContext";
 import Root from "./Layout/Root";
 import Loading from "./Pages/Loading";
 
 // import using lazy
 const Home = lazy(() => import("./Pages/Home"));
 const SavedProfiles = lazy(() => import("./Pages/SavedProfiles"));
+const Error = lazy(() => import("./Pages/Error"));
 
 const router = createBrowserRouter([
   {
@@ -20,15 +23,23 @@ const router = createBrowserRouter([
         path: "/saved-profiles",
         element: <SavedProfiles />,
       },
+      {
+        path: "*", // catch all routes
+        element: <Error />,
+      },
     ],
   },
 ]);
 
 const App = () => {
   return (
-    <Suspense fallback={<Loading />}>
-      <RouterProvider router={router} />
-    </Suspense>
+    <ErrorProvider>
+      <ProfileProvider>
+        <Suspense fallback={<Loading />}>
+          <RouterProvider router={router} />
+        </Suspense>
+      </ProfileProvider>
+    </ErrorProvider>
   );
 };
 
