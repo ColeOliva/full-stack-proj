@@ -37,5 +37,5 @@ const ErrorProvider = ({ children }) => {
   );
 };
 
-export { ErrorContext, ErrorProvider }; // import { WordContext, WordProvider } from "./context/WordContext";
-export default ErrorContext; // import WordContext from "./context/WordContext";
+export { ErrorContext, ErrorProvider };
+export default ErrorContext; 

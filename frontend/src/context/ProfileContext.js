@@ -41,7 +41,7 @@ const ProfileProvider = ({ children }) => {
       const data = response.data;
       setProfiles([...profiles, data]);
     } catch (error) {
-      reportErrors("add-profile", error.message);
+      reportErrors("saved-profiles", error.message);
     }
   };
 
@@ -62,7 +62,7 @@ const ProfileProvider = ({ children }) => {
       );
       setProfiles(updatedProfiles);
     } catch (error) {
-      reportErrors("update-profile", error.message);
+      reportErrors("saved-profiles", error.message);
     }
   };
 
@@ -72,7 +72,7 @@ const ProfileProvider = ({ children }) => {
       const filteredProfiles = profiles.filter((p) => p._id !== username);
       setProfiles(filteredProfiles);
     } catch (error) {
-      reportErrors("delete-profile", error.message);
+      reportErrors("saved-profiles", error.message);
     }
   };
 

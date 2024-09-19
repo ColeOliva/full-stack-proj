@@ -1,5 +1,6 @@
 import { CiCircleRemove } from "react-icons/ci";
 import { IoEyeOutline } from "react-icons/io5";
+import styled from "styled-components";
 import Color from "../../constant/Color";
 import useProfileContext from "../../hook/useProfileContext";
 
@@ -7,110 +8,117 @@ const List = () => {
   const { profiles, deleteProfile } = useProfileContext();
 
   if (!profiles || profiles.length === 0) {
-    return (
-      <div
-        style={{
-          marginLeft: "2rem",
-          alignItems: "center",
-          fontSize: "1.2rem",
-          lineHeight: "1.5rem",
-          color: Color.secondaryText,
-        }}
-      >
-        No profiles saved yet
-      </div>
-    );
+    return <NoProfilesMessage>No profiles saved yet</NoProfilesMessage>;
   }
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        alignItems: "flex-start",
-      }}
-    >
+    <Container>
       {profiles.map((profile, index) => (
-        <div
-          key={index}
-          style={{
-            width: "200px",
-            padding: "1rem",
-            backgroundColor: "#fff",
-            borderRadius: "10px",
-            boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
-            margin: "0.5rem 1rem",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          {/* Profile avatar */}
-          <img
+        <ProfileCard key={index}>
+          <Avatar
             src={profile.profileData.avatar_url}
             alt={profile.profileData.login}
-            style={{
-              width: "100px",
-              height: "100px",
-              borderRadius: "50%",
-              marginBottom: "1rem",
-            }}
           />
-
-          {/* Profile username */}
-          <a
+          <Username
             href={profile.profileData.html_url}
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              color: Color.tertiaryText,
-              textDecoration: "none",
-              fontWeight: "bold",
-              marginBottom: "1rem",
-              fontSize: "1.2rem",
-            }}
           >
             @{profile.profileData.login}
-          </a>
-
-          {/* Action icons (view and delete) */}
-          <div
-            style={{ display: "flex", justifyContent: "center", gap: "2rem" }}
-          >
-            {/* View icon */}
+          </Username>
+          <ActionIcons>
             <a
               href={profile.profileData.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                color: Color.primaryText,
-                marginRight: "1rem",
-                fontSize: "1.5rem",
-              }}
+              style={{ color: Color.primaryText, fontSize: "1.5rem" }}
             >
               <IoEyeOutline color={Color.secondaryText} />
             </a>
-
-            {/* Delete icon */}
-            <button
-              onClick={() => deleteProfile(profile.profileData.login)} // Call deleteProfile from context
-              style={{
-                background: "none",
-                border: "none",
-                color: Color.primaryText,
-                cursor: "pointer",
-                fontSize: "1.5rem",
-              }}
+            <IconButton
+              onClick={() => deleteProfile(profile.profileData.login)}
             >
               <CiCircleRemove color={Color.secondaryText} />
-            </button>
-          </div>
-        </div>
+            </IconButton>
+          </ActionIcons>
+        </ProfileCard>
       ))}
-    </div>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
+`;
+
+const ProfileCard = styled.div`
+  width: 175px;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+
+  @media (max-width: 575px) {
+    width: 40%;
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+`;
+
+const Avatar = styled.img`
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+`;
+
+const Username = styled.a`
+  color: ${Color.tertiaryText};
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+
+  @media (max-width: 575px) {
+    font-size: 1rem;
+  }
+`;
+
+const ActionIcons = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+
+  @media (max-width: 575px) {
+    gap: 0.5rem;
+  }
+`;
+
+const IconButton = styled.button`
+  background: none;
+  border: none;
+  color: ${Color.primaryText};
+  cursor: pointer;
+  font-size: 1.5rem;
+`;
+
+const NoProfilesMessage = styled.div`
+  margin-left: 2rem;
+  align-items: center;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  color: ${Color.secondaryText};
+`;
 
 export default List;

@@ -22,7 +22,7 @@ const Home = () => {
     }
   };
 
-  // renders the initial definition for user to see when first loaded
+  // renders the initial profile for user to see when first loaded
   useEffect(() => {
     const renderInitialDefinition = async () => {
       const data = await searchUser(user);
